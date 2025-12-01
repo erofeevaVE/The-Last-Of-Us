@@ -1,197 +1,472 @@
 <!DOCTYPE html>
-<html>
+<html lang="ru">
 <head>
-    <title>Поиск по The Last of Us</title>
-    <meta charset="utf-8">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🔍 Поиск по The Last of Us Вики</title>
     <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+        }
+        
         body {
-            font-family: Arial, sans-serif;
-            padding: 20px;
-            max-width: 800px;
-            margin: auto;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+            color: #fff;
             min-height: 100vh;
+            padding: 20px;
         }
         
         .container {
-            background: white;
-            padding: 30px;
-            border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
         }
         
-        h1 {
-            color: #333;
+        .header {
             text-align: center;
-            margin-bottom: 30px;
+            margin-bottom: 40px;
+            padding: 30px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+        
+        .header h1 {
+            font-size: 3em;
+            margin-bottom: 10px;
+            background: linear-gradient(90deg, #00b4db, #0083b0);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+        
+        .header p {
+            color: #a0a0c0;
+            font-size: 1.2em;
+            max-width: 600px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+        
+        .search-container {
+            position: relative;
+            margin-bottom: 40px;
         }
         
         .search-box {
             display: flex;
-            gap: 10px;
+            gap: 15px;
             margin-bottom: 20px;
         }
         
         #searchInput {
             flex: 1;
-            padding: 15px;
-            font-size: 16px;
-            border: 2px solid #ddd;
-            border-radius: 8px;
-            outline: none;
-            transition: border-color 0.3s;
+            padding: 20px 25px;
+            font-size: 18px;
+            border: none;
+            border-radius: 15px;
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.3s ease;
+            backdrop-filter: blur(5px);
         }
         
         #searchInput:focus {
-            border-color: #764ba2;
+            outline: none;
+            border-color: #00b4db;
+            box-shadow: 0 0 0 3px rgba(0, 180, 219, 0.3);
+            background: rgba(255, 255, 255, 0.15);
+        }
+        
+        #searchInput::placeholder {
+            color: rgba(255, 255, 255, 0.5);
         }
         
         #searchBtn {
-            padding: 15px 30px;
-            background: #764ba2;
+            padding: 0 40px;
+            background: linear-gradient(135deg, #00b4db, #0083b0);
             color: white;
             border: none;
-            border-radius: 8px;
-            font-size: 16px;
+            border-radius: 15px;
+            font-size: 18px;
+            font-weight: 600;
             cursor: pointer;
-            transition: background 0.3s;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            box-shadow: 0 6px 15px rgba(0, 180, 219, 0.4);
         }
         
         #searchBtn:hover {
-            background: #667eea;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(0, 180, 219, 0.6);
+            background: linear-gradient(135deg, #0083b0, #006a8e);
+        }
+        
+        #searchBtn:active {
+            transform: translateY(0);
         }
         
         #searchBtn:disabled {
-            background: #ccc;
+            opacity: 0.6;
             cursor: not-allowed;
+            transform: none;
         }
         
         .status {
-            padding: 10px;
-            border-radius: 5px;
+            padding: 15px 20px;
+            border-radius: 10px;
             margin-bottom: 20px;
-            text-align: center;
             display: none;
+            align-items: center;
+            gap: 15px;
+            animation: fadeIn 0.3s ease;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
         }
         
         .status.loading {
-            background: #e3f2fd;
-            color: #1976d2;
-            display: block;
+            background: linear-gradient(135deg, rgba(0, 180, 219, 0.2), rgba(0, 131, 176, 0.2));
+            border-left: 5px solid #00b4db;
+            display: flex;
         }
         
         .status.error {
-            background: #ffebee;
-            color: #d32f2f;
-            display: block;
+            background: linear-gradient(135deg, rgba(255, 87, 87, 0.2), rgba(198, 40, 40, 0.2));
+            border-left: 5px solid #ff5757;
+            display: flex;
         }
         
         .status.success {
-            background: #e8f5e9;
-            color: #388e3c;
-            display: block;
+            background: linear-gradient(135deg, rgba(76, 175, 80, 0.2), rgba(46, 125, 50, 0.2));
+            border-left: 5px solid #4caf50;
+            display: flex;
         }
         
-        .results {
-            min-height: 100px;
+        .loading-spinner {
+            width: 20px;
+            height: 20px;
+            border: 3px solid rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            border-top-color: #00b4db;
+            animation: spin 1s linear infinite;
         }
         
-        .result-item {
-            background: #f5f5f5;
-            padding: 15px;
-            margin: 10px 0;
-            border-radius: 8px;
-            border-left: 4px solid #764ba2;
-            transition: transform 0.2s;
+        @keyframes spin {
+            to { transform: rotate(360deg); }
         }
         
-        .result-item:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        .results-container {
+            display: grid;
+            gap: 20px;
+            margin-top: 30px;
+        }
+        
+        .results-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .results-count {
+            font-size: 1.1em;
+            color: #a0a0c0;
+        }
+        
+        .results-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 20px;
+        }
+        
+        .result-card {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            padding: 25px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            backdrop-filter: blur(5px);
+        }
+        
+        .result-card:hover {
+            transform: translateY(-5px);
+            background: rgba(255, 255, 255, 0.1);
+            border-color: rgba(0, 180, 219, 0.3);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
+        }
+        
+        .result-card:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, #00b4db, #0083b0);
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+        
+        .result-card:hover:before {
+            opacity: 1;
+        }
+        
+        .result-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 15px;
         }
         
         .result-title {
-            font-size: 18px;
-            font-weight: bold;
-            color: #333;
-            margin-bottom: 5px;
+            font-size: 1.4em;
+            font-weight: 700;
+            color: white;
+            margin: 0;
         }
         
-        .result-tags {
+        .result-badges {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+            margin-bottom: 15px;
+        }
+        
+        .badge {
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.8em;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        .badge.category {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+        }
+        
+        .badge.type {
+            background: linear-gradient(135deg, #4facfe, #00f2fe);
+        }
+        
+        .badge.game {
+            background: linear-gradient(135deg, #43e97b, #38f9d7);
+        }
+        
+        .result-description {
+            color: #c0c0e0;
+            line-height: 1.6;
+            margin: 15px 0;
+            font-size: 0.95em;
+        }
+        
+        .result-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 20px;
+            padding-top: 15px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .result-id {
+            font-size: 0.8em;
             color: #666;
-            font-size: 14px;
-            margin-bottom: 10px;
+            font-family: monospace;
+            background: rgba(0, 0, 0, 0.3);
+            padding: 3px 8px;
+            border-radius: 10px;
         }
         
         .result-link {
-            display: inline-block;
-            font-size: 12px;
-            color: #764ba2;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: linear-gradient(135deg, #00b4db, #0083b0);
+            color: white;
             text-decoration: none;
-            border: 1px solid #764ba2;
-            padding: 4px 8px;
-            border-radius: 4px;
-            transition: all 0.3s;
+            padding: 10px 20px;
+            border-radius: 10px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            font-size: 0.9em;
         }
         
         .result-link:hover {
-            background: #764ba2;
-            color: white;
+            background: linear-gradient(135deg, #0083b0, #006a8e);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 180, 219, 0.4);
         }
         
-        .error-message {
-            background-color: #ffe6e6;
-            border: 1px solid #ff3333;
-            padding: 15px;
-            margin: 10px 0;
-            border-radius: 6px;
-            color: #cc0000;
+        .no-results {
+            text-align: center;
+            padding: 60px 20px;
+            color: #a0a0c0;
+            grid-column: 1 / -1;
+        }
+        
+        .no-results-icon {
+            font-size: 4em;
+            margin-bottom: 20px;
+            opacity: 0.5;
+        }
+        
+        .filters {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+        
+        .filter-btn {
+            padding: 8px 16px;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            color: white;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 0.9em;
+        }
+        
+        .filter-btn:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+        
+        .filter-btn.active {
+            background: linear-gradient(135deg, #00b4db, #0083b0);
+            border-color: transparent;
+        }
+        
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2.2em;
+            }
+            
+            .search-box {
+                flex-direction: column;
+            }
+            
+            #searchBtn {
+                width: 100%;
+                justify-content: center;
+                padding: 20px;
+            }
+            
+            .results-grid {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>🔍 Поиск по The Last of Us</h1>
-        
-        <div class="search-box">
-            <input type="text" id="searchInput" placeholder="Введите имя персонажа или локацию..." value="Элли">
-            <button id="searchBtn">Поиск</button>
+        <div class="header">
+            <h1>🔍 The Last of Us Вики</h1>
+            <p>Полнотекстовый поиск по персонажам, локациям, оружию и всем разделам вики</p>
         </div>
         
-        <div id="status" class="status">
-            Готов к поиску
+        <div class="search-container">
+            <div class="search-box">
+                <input type="text" id="searchInput" placeholder="Введите имя персонажа, локацию, оружие...">
+                <button id="searchBtn">Поиск</button>
+            </div>
+            
+            <div class="filters">
+                <button class="filter-btn active" data-filter="all">Все</button>
+                <button class="filter-btn" data-filter="Персонажи">Персонажи</button>
+                <button class="filter-btn" data-filter="Локации">Локации</button>
+                <button class="filter-btn" data-filter="Оружие">Оружие</button>
+                <button class="filter-btn" data-filter="Общины/Группировки">Группировки</button>
+                <button class="filter-btn" data-filter="Коллекционный материал">Коллекции</button>
+                <button class="filter-btn" data-filter="Достижения">Достижения</button>
+            </div>
+            
+            <div id="status" class="status">
+                <div class="loading-spinner"></div>
+                <span>Идет поиск...</span>
+            </div>
         </div>
         
-        <div id="results" class="results">
-            <div style="text-align: center; color: #888; padding: 40px;">
-                Введите запрос и нажмите "Поиск"
+        <div class="results-container">
+            <div class="results-header">
+                <h2 id="resultsTitle">Результаты поиска</h2>
+                <div id="resultsCount" class="results-count">Введите запрос</div>
+            </div>
+            
+            <div id="results" class="results-grid">
+                <div class="no-results">
+                    <div class="no-results-icon">🔍</div>
+                    <h3>Начните поиск</h3>
+                    <p>Введите запрос в поле выше, чтобы найти информацию в вики</p>
+                    <p style="margin-top: 20px; color: #888; font-size: 0.9em;">
+                        Примеры: "Джоэл", "Дробовик", "Джексон", "Цикады"
+                    </p>
+                </div>
             </div>
         </div>
     </div>
 
     <script>
         // === КОНФИГУРАЦИЯ ===
-        // ВАЖНО: Замените на ваш токен!
-        const NOTION_TOKEN = 'secret_ntn_2029426629824AHZXGrCqVpnFJeC7q5drUatiTI5n5mgws';
-        const DATABASE_ID = '2a14b9a1edba80fc8de0e0736f9ba6b3';
+        const DATA_URL = 'data.json'; // Ваш JSON файл
         
         // === DOM ЭЛЕМЕНТЫ ===
         const searchInput = document.getElementById('searchInput');
         const searchBtn = document.getElementById('searchBtn');
         const statusDiv = document.getElementById('status');
         const resultsDiv = document.getElementById('results');
+        const resultsCount = document.getElementById('resultsCount');
+        const resultsTitle = document.getElementById('resultsTitle');
+        const filterBtns = document.querySelectorAll('.filter-btn');
         
-        // === ОСНОВНЫЕ ФУНКЦИИ ===
+        let allResults = [];
+        let currentFilter = 'all';
+        
+        // === ФУНКЦИИ ===
         function showStatus(message, type = 'info') {
-            statusDiv.textContent = message;
+            statusDiv.innerHTML = `
+                ${type === 'loading' ? '<div class="loading-spinner"></div>' : ''}
+                <span>${message}</span>
+            `;
             statusDiv.className = `status ${type}`;
             statusDiv.style.display = 'block';
             
             if (type === 'loading') {
                 searchBtn.disabled = true;
+                searchBtn.innerHTML = 'Поиск...';
             } else {
                 searchBtn.disabled = false;
+                searchBtn.innerHTML = 'Поиск';
             }
+        }
+        
+        function escapeHtml(text) {
+            const div = document.createElement('div');
+            div.textContent = text;
+            return div.innerHTML;
+        }
+        
+        function formatGame(game) {
+            if (Array.isArray(game)) {
+                return game.join(', ');
+            }
+            return game;
         }
         
         async function performSearch() {
@@ -206,142 +481,103 @@
             resultsDiv.innerHTML = '';
             
             try {
-                // Используем CORS-прокси
-                const PROXY_URL = 'https://corsproxy.io/?';
-                const NOTION_URL = `https://api.notion.com/v1/databases/${DATABASE_ID}/query`;
-                const proxiedUrl = PROXY_URL + encodeURIComponent(NOTION_URL);
-                
-                console.log('Отправка запроса на:', proxiedUrl);
-                
-                const response = await fetch(proxiedUrl, {
-                    method: 'POST',
-                    headers: {
-                        'Authorization': `Bearer ${NOTION_TOKEN}`,
-                        'Notion-Version': '2022-06-28',
-                        'Content-Type': 'application/json'
-                    },
-                    body: JSON.stringify({
-                        filter: {
-                            or: [
-                                { property: 'Name', title: { contains: query } },
-                                { property: 'Tags', multi_select: { contains: query } },
-                                { property: 'Title', title: { contains: query } },
-                                { property: 'Описание', rich_text: { contains: query } }
-                            ]
-                        },
-                        page_size: 50
-                    })
-                });
-                
-                console.log('Статус ответа:', response.status);
-                
-                if (!response.ok) {
-                    const errorText = await response.text();
-                    console.error('Ошибка API:', errorText);
-                    
-                    if (response.status === 401) {
-                        throw new Error('Неверный токен API. Получите новый на notion.so/my-integrations');
-                    }
-                    
-                    throw new Error(`Ошибка API: ${response.status}`);
-                }
+                // Загружаем данные из JSON файла
+                const response = await fetch(DATA_URL);
+                if (!response.ok) throw new Error('Ошибка загрузки данных');
                 
                 const data = await response.json();
-                console.log('Получено результатов:', data.results?.length || 0);
                 
-                displayResults(data.results || [], query);
-                showStatus(`Найдено: ${data.results?.length || 0} результатов`, 'success');
+                // Ищем во всех данных
+                const lowerQuery = query.toLowerCase();
+                allResults = data.items.filter(item => {
+                    return item.name.toLowerCase().includes(lowerQuery) ||
+                           item.description.toLowerCase().includes(lowerQuery) ||
+                           item.category.toLowerCase().includes(lowerQuery) ||
+                           item.type.toLowerCase().includes(lowerQuery) ||
+                           (Array.isArray(item.game) ? 
+                              item.game.some(g => g.toLowerCase().includes(lowerQuery)) :
+                              item.game.toLowerCase().includes(lowerQuery));
+                });
+                
+                // Применяем фильтр
+                const filteredResults = applyFilter(allResults);
+                
+                // Показываем результаты
+                displayResults(filteredResults, query);
+                
+                showStatus(`Найдено: ${allResults.length} результатов`, 'success');
                 
             } catch (error) {
                 console.error('Ошибка поиска:', error);
                 showStatus(`Ошибка: ${error.message}`, 'error');
                 
-                // Показываем демо-данные при ошибке
-                showFallbackResults(query);
+                // Показываем сообщение об ошибке
+                resultsDiv.innerHTML = `
+                    <div class="no-results" style="grid-column: 1 / -1;">
+                        <div class="no-results-icon">⚠️</div>
+                        <h3>Ошибка загрузки данных</h3>
+                        <p>${escapeHtml(error.message)}</p>
+                        <p>Проверьте доступность файла data.json</p>
+                    </div>
+                `;
             }
+        }
+        
+        function applyFilter(results) {
+            if (currentFilter === 'all') return results;
+            return results.filter(item => item.category === currentFilter);
         }
         
         function displayResults(results, query) {
-            if (results.length === 0) {
+            if (!results || results.length === 0) {
                 resultsDiv.innerHTML = `
-                    <div style="text-align: center; padding: 40px; color: #666;">
-                        <div style="font-size: 48px; margin-bottom: 20px;">😕</div>
+                    <div class="no-results" style="grid-column: 1 / -1;">
+                        <div class="no-results-icon">😕</div>
                         <h3>Ничего не найдено</h3>
                         <p>По запросу "${escapeHtml(query)}" ничего не найдено</p>
-                        <p>Попробуйте другие ключевые слова</p>
+                        <p>Попробуйте другие ключевые слова или выберите другую категорию</p>
                     </div>
                 `;
+                resultsCount.textContent = '0 результатов';
+                resultsTitle.textContent = 'Результаты поиска';
                 return;
             }
             
-            const resultsHtml = results.map(page => {
-                const title = getPageTitle(page);
-                const tags = getPageTags(page);
-                const description = getPageDescription(page);
-                const url = page.url || `https://notion.so/${page.id.replace(/-/g, '')}`;
-                
-                return `
-                    <div class="result-item">
-                        <div class="result-title">${escapeHtml(title)}</div>
-                        ${description ? `<div style="margin: 8px 0; color: #555;">${escapeHtml(description)}</div>` : ''}
-                        ${tags ? `<div class="result-tags">🏷️ ${escapeHtml(tags)}</div>` : ''}
-                        <a href="${url}" target="_blank" class="result-link">Открыть в Notion →</a>
+            // Обновляем заголовок
+            resultsCount.textContent = `${results.length} из ${allResults.length} результатов`;
+            resultsTitle.textContent = `Результаты поиска: "${query}"`;
+            
+            // Создаем карточки
+            const resultsHtml = results.map(item => `
+                <div class="result-card" data-category="${escapeHtml(item.category)}">
+                    <div class="result-header">
+                        <h3 class="result-title">${escapeHtml(item.name)}</h3>
+                        <span class="result-id">#${item.id}</span>
                     </div>
-                `;
-            }).join('');
-            
-            resultsDiv.innerHTML = `
-                <div style="margin-bottom: 15px; color: #666;">
-                    Найдено результатов: ${results.length}
+                    
+                    <div class="result-badges">
+                        <span class="badge category">${escapeHtml(item.category)}</span>
+                        <span class="badge type">${escapeHtml(item.type)}</span>
+                        <span class="badge game">${escapeHtml(formatGame(item.game))}</span>
+                    </div>
+                    
+                    <p class="result-description">${escapeHtml(item.description)}</p>
+                    
+                    <div class="result-footer">
+                        <div style="color: #888; font-size: 0.85em;">
+                            ID: ${item.id}
+                        </div>
+                        <a href="${item.url}" target="_blank" class="result-link">
+                            Открыть в вики →
+                        </a>
+                    </div>
                 </div>
-                ${resultsHtml}
-            `;
+            `).join('');
+            
+            resultsDiv.innerHTML = resultsHtml;
         }
         
-        
-        function getPageTitle(page) {
-            const properties = page.properties || {};
-            
-            const titleProps = ['Name', 'Title', 'Название', 'Имя'];
-            for (const prop of titleProps) {
-                if (properties[prop]?.title?.[0]?.text?.content) {
-                    return properties[prop].title[0].text.content;
-                }
-            }
-            
-            return 'Без названия';
-        }
-        
-        function getPageTags(page) {
-            const properties = page.properties || {};
-            
-            if (properties.Tags?.multi_select?.length > 0) {
-                return properties.Tags.multi_select.map(tag => tag.name).join(', ');
-            }
-            
-            return '';
-        }
-        
-        function getPageDescription(page) {
-            const properties = page.properties || {};
-            
-            const descProps = ['Description', 'Описание', 'Content', 'Содержание'];
-            for (const prop of descProps) {
-                if (properties[prop]?.rich_text?.length > 0) {
-                    return properties[prop].rich_text.map(text => text.text.content).join('');
-                }
-            }
-            
-            return '';
-        }
-        
-        function escapeHtml(text) {
-            const div = document.createElement('div');
-            div.textContent = text;
-            return div.innerHTML;
-        }
-        
-        // === ИНИЦИАЛИЗАЦИЯ ===
+        // === ОБРАБОТЧИКИ СОБЫТИЙ ===
         document.addEventListener('DOMContentLoaded', () => {
             // Обработчик кнопки поиска
             searchBtn.addEventListener('click', performSearch);
@@ -353,11 +589,32 @@
                 }
             });
             
+            // Обработчики фильтров
+            filterBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    // Убираем активный класс у всех кнопок
+                    filterBtns.forEach(b => b.classList.remove('active'));
+                    // Добавляем активный класс нажатой кнопке
+                    btn.classList.add('active');
+                    // Устанавливаем текущий фильтр
+                    currentFilter = btn.dataset.filter;
+                    
+                    // Если есть результаты - применяем фильтр
+                    if (allResults.length > 0) {
+                        const filtered = applyFilter(allResults);
+                        displayResults(filtered, searchInput.value.trim() || '');
+                    }
+                });
+            });
+            
             // Фокус на поле ввода
             searchInput.focus();
             
-            // Автоматический поиск при загрузке
-            setTimeout(performSearch, 500);
+            // Пример автоматического поиска (можно убрать)
+            // setTimeout(() => {
+            //     searchInput.value = 'Джоэл';
+            //     performSearch();
+            // }, 1000);
         });
     </script>
 </body>
