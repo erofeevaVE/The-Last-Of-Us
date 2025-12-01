@@ -1,0 +1,546 @@
+{
+  "items": [
+    // === ПЕРСОНАЖИ (20+ записей) ===
+    {
+      "id": 1,
+      "name": "Джоэл",
+      "category": "Персонажи",
+      "type": "Главный герой",
+      "game": ["Part I", "Part II"],
+      "description": "Джоэл Миллер — главный герой серии. Потерял дочь Сару. Контрабандист, становится защитником Элли.",
+      "url": "https://notion.so/joel-page"
+    },
+    {
+      "id": 2,
+      "name": "Элли",
+      "category": "Персонажи",
+      "type": "Главный герой",
+      "game": ["Part I", "Part II"],
+      "description": "Главная героиня, иммунная к инфекции. Проходит путь от ребёнка до воина.",
+      "url": "https://notion.so/ellie-page"
+    },
+    {
+      "id": 3,
+      "name": "Томми",
+      "category": "Персонажи",
+      "type": "Второстепенный герой",
+      "game": ["Part I", "Part II"],
+      "description": "Брат Джоэла, лидер Джексона. Бывший Цикада.",
+      "url": "https://notion.so/tommy-page"
+    },
+    {
+      "id": 4,
+      "name": "Тесс",
+      "category": "Персонажи",
+      "type": "Второстепенный герой",
+      "game": ["Part I"],
+      "description": "Напарница Джоэла по контрабанде в Бостоне. Жертвует собой.",
+      "url": "https://notion.so/tess-page"
+    },
+    {
+      "id": 5,
+      "name": "Билл",
+      "category": "Персонажи",
+      "type": "Второстепенный герой",
+      "game": ["Part I"],
+      "description": "Выживший в Линкольне. Помогает Джоэлу и Элли найти машину.",
+      "url": "https://notion.so/bill-page"
+    },
+    {
+      "id": 6,
+      "name": "Генри и Сэм",
+      "category": "Персонажи",
+      "type": "Второстепенный герой",
+      "game": ["Part I"],
+      "description": "Братья, встреченные в Питтсбурге. Трагическая история.",
+      "url": "https://notion.so/henry-sam-page"
+    },
+    {
+      "id": 7,
+      "name": "Давид",
+      "category": "Персонажи",
+      "type": "Второстепенный герой",
+      "game": ["Part I"],
+      "description": "Лидер общины каннибалов. Главный антагонист сезона Зима.",
+      "url": "https://notion.so/david-page"
+    },
+    {
+      "id": 8,
+      "name": "Мария",
+      "category": "Персонажи",
+      "type": "Второстепенный герой",
+      "game": ["Part I"],
+      "description": "Жена Томми, лидер Джексона.",
+      "url": "https://notion.so/maria-page"
+    },
+    {
+      "id": 9,
+      "name": "Марлин",
+      "category": "Персонажи",
+      "type": "Второстепенный герой",
+      "game": ["Part I"],
+      "description": "Лидер Цикад. Ищет вакцину с помощью Элли.",
+      "url": "https://notion.so/marlene-page"
+    },
+    {
+      "id": 10,
+      "name": "Эбби",
+      "category": "Персонажи",
+      "type": "Главный герой",
+      "game": ["Part II"],
+      "description": "Дочь хирурга, убитого Джоэлом. Ищет месть, но находит искупление.",
+      "url": "https://notion.so/abby-page"
+    },
+    {
+      "id": 11,
+      "name": "Дина",
+      "category": "Персонажи",
+      "type": "Второстепенный герой",
+      "game": ["Part II"],
+      "description": "Подруга Элли в Джексоне. Беременна от Джесси.",
+      "url": "https://notion.so/dina-page"
+    },
+    {
+      "id": 12,
+      "name": "Джесси",
+      "category": "Персонажи",
+      "type": "Второстепенный герой",
+      "game": ["Part II"],
+      "description": "Друг Элли, бывший парень Дины. Помогает Элли в Сиэтле.",
+      "url": "https://notion.so/jesse-page"
+    },
+    {
+      "id": 13,
+      "name": "Айзек",
+      "category": "Персонажи",
+      "type": "Второстепенный герой",
+      "game": ["Part II"],
+      "description": "Лидер Вашингтонского Освободительного Фронта (ВОФ).",
+      "url": "https://notion.so/isaac-page"
+    },
+    {
+      "id": 14,
+      "name": "Лев и Йара",
+      "category": "Персонажи",
+      "type": "Второстепенный герой",
+      "game": ["Part II"],
+      "description": "Братья-серафиты. Лев — трансгендерный подросток.",
+      "url": "https://notion.so/lev-yara-page"
+    },
+    {
+      "id": 15,
+      "name": "Бегун",
+      "category": "Персонажи",
+      "type": "Зараженный",
+      "game": ["Part I", "Part II"],
+      "description": "Первая стадия заражения. Быстрые, но слабые.",
+      "url": "https://notion.so/runner-page"
+    },
+    {
+      "id": 16,
+      "name": "Сталкер",
+      "category": "Персонажи",
+      "type": "Зараженный",
+      "game": ["Part I", "Part II"],
+      "description": "Вторая стадия. Прячутся и нападают из засады.",
+      "url": "https://notion.so/stalker-page"
+    },
+    {
+      "id": 17,
+      "name": "Щелкун",
+      "category": "Персонажи",
+      "type": "Зараженный",
+      "game": ["Part I", "Part II"],
+      "description": "Третья стадия. Слепые, но с отличным слухом.",
+      "url": "https://notion.so/clicker-page"
+    },
+    {
+      "id": 18,
+      "name": "Топляк",
+      "category": "Персонажи",
+      "type": "Зараженный",
+      "game": ["Part I", "Part II"],
+      "description": "Четвёртая стадия. Броня из грибка, бросают споры.",
+      "url": "https://notion.so/bloater-page"
+    },
+    {
+      "id": 19,
+      "name": "Крысиный король",
+      "category": "Персонажи",
+      "type": "Зараженный",
+      "game": ["Part II"],
+      "description": "Несколько зараженных, сросшихся в одного монстра.",
+      "url": "https://notion.so/rat-king-page"
+    },
+    {
+      "id": 20,
+      "name": "Сара",
+      "category": "Персонажи",
+      "type": "Второстепенный герой",
+      "game": ["Part I"],
+      "description": "Дочь Джоэла. Погибает в начале эпидемии.",
+      "url": "https://notion.so/sarah-page"
+    },
+
+    // === ЛОКАЦИИ (15+ записей) ===
+    {
+      "id": 21,
+      "name": "Джексон",
+      "category": "Локации",
+      "type": "Поселение",
+      "game": ["Part I", "Part II"],
+      "description": "Безопасное поселение в Вайоминге под руководством Томми и Марии.",
+      "url": "https://notion.so/jackson-page"
+    },
+    {
+      "id": 22,
+      "name": "Бостон",
+      "category": "Локации",
+      "type": "Карантинная зона",
+      "game": ["Part I"],
+      "description": "Первая локация игры. Контролируется ФЕДРА.",
+      "url": "https://notion.so/boston-page"
+    },
+    {
+      "id": 23,
+      "name": "Линкольн",
+      "category": "Локации",
+      "type": "Город",
+      "game": ["Part I"],
+      "description": "Заброшенный город, где живёт Билл. Полон ловушек.",
+      "url": "https://notion.so/lincoln-page"
+    },
+    {
+      "id": 24,
+      "name": "Питтсбург",
+      "category": "Локации",
+      "type": "Город",
+      "game": ["Part I"],
+      "description": "Опасный город, контролируемый бандитами.",
+      "url": "https://notion.so/pittsburgh-page"
+    },
+    {
+      "id": 25,
+      "name": "Солт-Лейк-Сити",
+      "category": "Локации",
+      "type": "Город",
+      "game": ["Part I"],
+      "description": "Финальная локация первой части. Лаборатория Цикад.",
+      "url": "https://notion.so/salt-lake-city-page"
+    },
+    {
+      "id": 26,
+      "name": "Сиэтл",
+      "category": "Локации",
+      "type": "Город",
+      "game": ["Part II"],
+      "description": "Основная локация второй части. Разделен между ВОФ и Серафитами.",
+      "url": "https://notion.so/seattle-page"
+    },
+    {
+      "id": 27,
+      "name": "Санта-Барбара",
+      "category": "Локации",
+      "type": "Город",
+      "game": ["Part II"],
+      "description": "Финальная локация. Контролируется работорговцами.",
+      "url": "https://notion.so/santa-barbara-page"
+    },
+    {
+      "id": 28,
+      "name": "Аквариум",
+      "category": "Локации",
+      "type": "Здание",
+      "game": ["Part II"],
+      "description": "База ВОФ в Сиэтле. Место встречи Эбби и её друзей.",
+      "url": "https://notion.so/aquarium-page"
+    },
+    {
+      "id": 29,
+      "name": "Театр",
+      "category": "Локации",
+      "type": "Здание",
+      "game": ["Part II"],
+      "description": "База Элли и Дины в Сиэтле.",
+      "url": "https://notion.so/theater-page"
+    },
+    {
+      "id": 30,
+      "name": "Остров Серафитов",
+      "category": "Локации",
+      "type": "Остров",
+      "game": ["Part II"],
+      "description": "База секты Серафитов. Место финального противостояния.",
+      "url": "https://notion.so/seraphites-island-page"
+    },
+
+    // === ОБЩИНЫ/ГРУППИРОВКИ (10+ записей) ===
+    {
+      "id": 31,
+      "name": "Цикады",
+      "category": "Общины/Группировки",
+      "type": "Повстанческая организация",
+      "game": ["Part I"],
+      "description": "Повстанческая группировка, борющаяся против ФЕДРА.",
+      "url": "https://notion.so/fireflies-page"
+    },
+    {
+      "id": 32,
+      "name": "ФЕДРА",
+      "category": "Общины/Группировки",
+      "type": "Военная организация",
+      "game": ["Part I"],
+      "description": "Federal Disaster Response Agency. Контролирует карантинные зоны.",
+      "url": "https://notion.so/fedra-page"
+    },
+    {
+      "id": 33,
+      "name": "Контрабандисты",
+      "category": "Общины/Группировки",
+      "type": "Криминальная группа",
+      "game": ["Part I"],
+      "description": "Нелегальные торговцы в Бостоне. Джоэл и Тесс — контрабандисты.",
+      "url": "https://notion.so/smugglers-page"
+    },
+    {
+      "id": 34,
+      "name": "Патруль Джексона",
+      "category": "Общины/Группировки",
+      "type": "Мирная община",
+      "game": ["Part I"],
+      "description": "Вооружённая охрана безопасной общины в Джексоне.",
+      "url": "https://notion.so/jackson-patrol-page"
+    },
+    {
+      "id": 35,
+      "name": "Община каннибалов",
+      "category": "Общины/Группировки",
+      "type": "Культ",
+      "game": ["Part I"],
+      "description": "Секта каннибалов под руководством Давида.",
+      "url": "https://notion.so/cannibals-page"
+    },
+    {
+      "id": 36,
+      "name": "Вашингтонский Освободительный Фронт (ВОФ)",
+      "category": "Общины/Группировки",
+      "type": "Военизированная организация",
+      "game": ["Part II"],
+      "description": "Наследник Цикад. Борется за контроль над ресурсами.",
+      "url": "https://notion.so/wlf-page"
+    },
+    {
+      "id": 37,
+      "name": "Серафиты (Шрамы)",
+      "category": "Общины/Группировки",
+      "type": "Религиозная секта",
+      "game": ["Part II"],
+      "description": "Религиозная группа, противостоящая ВОФ.",
+      "url": "https://notion.so/seraphites-page"
+    },
+    {
+      "id": 38,
+      "name": "Работорговцы",
+      "category": "Общины/Группировки",
+      "type": "Криминальная группа",
+      "game": ["Part II"],
+      "description": "Группа в Санта-Барбаре, захватывающая людей в рабство.",
+      "url": "https://notion.so/slavers-page"
+    },
+
+    // === ОРУЖИЕ (15+ записей) ===
+    {
+      "id": 39,
+      "name": "Топор",
+      "category": "Оружие",
+      "type": "Холодное оружие",
+      "game": ["Part I"],
+      "description": "Одноручный топорик. Убивает с одного удара.",
+      "url": "https://notion.so/axe-page"
+    },
+    {
+      "id": 40,
+      "name": "Дробовик",
+      "category": "Оружие",
+      "type": "Длинноствольное оружие",
+      "game": ["Part I"],
+      "description": "Мощное оружие ближнего боя. Появляется у Билла.",
+      "url": "https://notion.so/shotgun-page"
+    },
+    {
+      "id": 41,
+      "name": "Револьвер",
+      "category": "Оружие",
+      "type": "Пистолет",
+      "game": ["Part I", "Part II"],
+      "description": "Основное оружие Джоэла. Мощный, но медленный.",
+      "url": "https://notion.so/revolver-page"
+    },
+    {
+      "id": 42,
+      "name": "9mm Пистолет",
+      "category": "Оружие",
+      "type": "Пистолет",
+      "game": ["Part I"],
+      "description": "Пистолет Элли. Быстрый, но слабый.",
+      "url": "https://notion.so/9mm-page"
+    },
+    {
+      "id": 43,
+      "name": "Лук",
+      "category": "Оружие",
+      "type": "Длинноствольное оружие",
+      "game": ["Part I", "Part II"],
+      "description": "Бесшумное оружие Элли. Можно создавать стрелы.",
+      "url": "https://notion.so/bow-page"
+    },
+    {
+      "id": 44,
+      "name": "Охотничья винтовка",
+      "category": "Оружие",
+      "type": "Длинноствольное оружие",
+      "game": ["Part I"],
+      "description": "Снайперская винтовка. Высокая точность.",
+      "url": "https://notion.so/hunting-rifle-page"
+    },
+    {
+      "id": 45,
+      "name": "Штурмовая винтовка",
+      "category": "Оружие",
+      "type": "Длинноствольное оружие",
+      "game": ["Part I", "Part II"],
+      "description": "Автоматическое оружие. Высокая скорострельность.",
+      "url": "https://notion.so/assault-rifle-page"
+    },
+    {
+      "id": 46,
+      "name": "Коктейль Молотова",
+      "category": "Оружие",
+      "type": "Метательное оружие",
+      "game": ["Part I", "Part II"],
+      "description": "Самодельная зажигательная бомба.",
+      "url": "https://notion.so/molotov-page"
+    },
+    {
+      "id": 47,
+      "name": "Бомба с гвоздями",
+      "category": "Оружие",
+      "type": "Метательное оружие",
+      "game": ["Part I", "Part II"],
+      "description": "Самодельная взрывчатка с поражающими элементами.",
+      "url": "https://notion.so/nail-bomb-page"
+    },
+    {
+      "id": 48,
+      "name": "Дымовая бомба",
+      "category": "Оружие",
+      "type": "Метательное оружие",
+      "game": ["Part II"],
+      "description": "Создает дымовую завесу для скрытного перемещения.",
+      "url": "https://notion.so/smoke-bomb-page"
+    },
+    {
+      "id": 49,
+      "name": "Бейсбольная бита",
+      "category": "Оружие",
+      "type": "Холодное оружие",
+      "game": ["Part I", "Part II"],
+      "description": "Простое холодное оружие. Можно модифицировать.",
+      "url": "https://notion.so/baseball-bat-page"
+    },
+    {
+      "id": 50,
+      "name": "Труба",
+      "category": "Оружие",
+      "type": "Холодное оружие",
+      "game": ["Part I", "Part II"],
+      "description": "Прочная металлическая труба. Долговечное оружие.",
+      "url": "https://notion.so/pipe-page"
+    },
+
+    // === КОЛЛЕКЦИОННЫЙ МАТЕРИАЛ (4 записи) ===
+    {
+      "id": 51,
+      "name": "Артефакты",
+      "category": "Коллекционный материал",
+      "type": "Коллекционные предметы",
+      "game": ["Part I", "Part II"],
+      "description": "Записки, письма, документы. Раскрывают детали вселенной.",
+      "url": "https://notion.so/artifacts-page"
+    },
+    {
+      "id": 52,
+      "name": "Медальоны Цикад",
+      "category": "Коллекционный материал",
+      "type": "Коллекционные предметы",
+      "game": ["Part I"],
+      "description": "Металлические значки членов Цикад.",
+      "url": "https://notion.so/firefly-pendants-page"
+    },
+    {
+      "id": 53,
+      "name": "Учебные пособия",
+      "category": "Коллекционный материал",
+      "type": "Коллекционные предметы",
+      "game": ["Part I", "Part II"],
+      "description": "Книги для улучшения оружия и навыков.",
+      "url": "https://notion.so/training-manuals-page"
+    },
+    {
+      "id": 54,
+      "name": "Комиксы",
+      "category": "Коллекционный материал",
+      "type": "Коллекционные предметы",
+      "game": ["Part I"],
+      "description": "Выпуски комиксов 'Дикие Звезды'.",
+      "url": "https://notion.so/comics-page"
+    },
+
+    // === ДОСТИЖЕНИЯ (5 примеров) ===
+    {
+      "id": 55,
+      "name": "Это всё неспроста",
+      "category": "Достижения",
+      "type": "Платиновый трофей",
+      "game": ["Part I"],
+      "description": "Получить все трофеи основной игры.",
+      "url": "https://notion.so/platinum-trophy-page"
+    },
+    {
+      "id": 56,
+      "name": "Собиратель",
+      "category": "Достижения",
+      "type": "Золотой трофей",
+      "game": ["Part I"],
+      "description": "Собрать все находки в игре.",
+      "url": "https://notion.so/collector-trophy-page"
+    },
+    {
+      "id": 57,
+      "name": "Полный арсенал",
+      "category": "Достижения",
+      "type": "Золотой трофей",
+      "game": ["Part I"],
+      "description": "Максимально улучшить все виды оружия.",
+      "url": "https://notion.so/full-arsenal-trophy-page"
+    },
+    {
+      "id": 58,
+      "name": "Что бы ни случилось",
+      "category": "Достижения",
+      "type": "Золотой трофей",
+      "game": ["Part I"],
+      "description": "Завершить игру на максимальном уровне сложности.",
+      "url": "https://notion.so/grounded-trophy-page"
+    },
+    {
+      "id": 59,
+      "name": "Цикада",
+      "category": "Достижения",
+      "type": "Золотой трофей",
+      "game": ["Part I"],
+      "description": "Пройдите путь 'Цикады' в мультиплеере.",
+      "url": "https://notion.so/firefly-trophy-page"
+    }
+  ]
+}
