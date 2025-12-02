@@ -1,8 +1,8 @@
 {
   "items": [
-    {"id": 1, "name": "Джоэл", "category": "Персонажи", "type": "Главный герой", "game": ["Part I", "Part II"], "description": "Джоэл Миллер — главный герой серии. Потерял дочь Сару. Контрабандист, становится защитником Элли.", "url": "https://notion.so/joel-page"},
-    {"id": 2, "name": "Элли", "category": "Персонажи", "type": "Главный герой", "game": ["Part I", "Part II"], "description": "Главная героиня, иммунная к инфекции. Проходит путь от ребёнка до воина.", "url": "https://notion.so/ellie-page"},
-    {"id": 3, "name": "Томми", "category": "Персонажи", "type": "Второстепенный герой", "game": ["Part I", "Part II"], "description": "Брат Джоэла, лидер Джексона. Бывший Цикада.", "url": "https://notion.so/tommy-page"},
+    {"id": 1, "name": "Джоэл", "category": "Персонажи", "type": "Главный герой", "game": ["Part I", "Part II"], "description": "Джоэл Миллер — главный герой серии. Потерял дочь Сару. Контрабандист, становится защитником Элли.", "url": "https://six-draw-be0.notion.site/2a74b9a1edba804ab642e4c0ec61b564"},
+    {"id": 2, "name": "Элли", "category": "Персонажи", "type": "Главный герой", "game": ["Part I", "Part II"], "description": "Главная героиня, иммунная к инфекции. Проходит путь от ребёнка до воина.", "url": "https://six-draw-be0.notion.site/2a74b9a1edba805a90d3c5c349fb08e8"},
+    {"id": 3, "name": "Томми", "category": "Персонажи", "type": "Второстепенный герой", "game": ["Part I", "Part II"], "description": "Брат Джоэла, лидер Джексона. Бывший Цикада.", "url": "https://six-draw-be0.notion.site/2a74b9a1edba8041a91bdbd184e57ada"},
     {"id": 4, "name": "Тесс", "category": "Персонажи", "type": "Второстепенный герой", "game": ["Part I"], "description": "Напарница Джоэла по контрабанде в Бостоне. Жертвует собой.", "url": "https://notion.so/tess-page"},
     {"id": 5, "name": "Билл", "category": "Персонажи", "type": "Второстепенный герой", "game": ["Part I"], "description": "Выживший в Линкольне. Помогает Джоэлу и Элли найти машину.", "url": "https://notion.so/bill-page"},
     {"id": 6, "name": "Генри и Сэм", "category": "Персонажи", "type": "Второстепенный герой", "game": ["Part I"], "description": "Братья, встреченные в Питтсбурге. Трагическая история.", "url": "https://notion.so/henry-sam-page"},
